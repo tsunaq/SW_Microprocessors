@@ -9,9 +9,9 @@
 
 ![image](https://user-images.githubusercontent.com/58457978/70216650-51dfd680-1783-11ea-9dfe-588fcb1de088.png)
 
-– 요구사항
-최종 결과 C행렬은 메모리에 저장되어야 함
-A행렬과 B행렬 값도 아래의 값을 그대로 유지하여 메모리에 존재해야 한다.
+– 요구사항  
+최종 결과 C행렬은 메모리에 저장되어야 함  
+A행렬과 B행렬 값도 아래의 값을 그대로 유지하여 메모리에 존재해야 한다.  
 
 ### 알고리즘
 ![3](https://user-images.githubusercontent.com/58457978/70217689-01697880-1785-11ea-8d77-f66834f8478c.png)
@@ -19,168 +19,171 @@ A행렬과 B행렬 값도 아래의 값을 그대로 유지하여 메모리에 �
 ### 어셈블리어 구현
 
 
-1. A 행렬 메모리 저장
-MOV3 R0, 1 
-MOV3 R1, 2
-MOV3 R2, 3
-MOV3 R3, 4
-MOV3 R4, 5
-MOV3 R5, 6
-MOV3 R6, 7
-MOV3 R7, 8
-MOV3 R8, 9
-MOV1 [0], R0
-MOV1 [1], R1
-MOV1 [2], R2
-MOV1 [3], R3
-MOV1 [4], R4
-MOV1 [5], R5
-MOV1 [6], R6
-MOV1 [7], R7
-MOV1 [8], R8
+1. A 행렬 메모리 저장  
+MOV3 R0, 1  
+MOV3 R1, 2  
+MOV3 R2, 3  
+MOV3 R3, 4  
+MOV3 R4, 5  
+MOV3 R5, 6  
+MOV3 R6, 7  
+MOV3 R7, 8  
+MOV3 R8, 9  
+MOV1 [0], R0  
+MOV1 [1], R1  
+MOV1 [2], R2  
+MOV1 [3], R3  
+MOV1 [4], R4  
+MOV1 [5], R5  
+MOV1 [6], R6  
+MOV1 [7], R7  
+MOV1 [8], R8  
 
 2. B 행렬 메모리 저장
-MOV3 R0, 10
-MOV3 R1, 11
-MOV3 R2, 12
-MOV3 R3, 13
-MOV3 R4, 14
-MOV3 R5, 15
-MOV3 R6, 16
-MOV3 R7, 17
-MOV3 R8, 18
-MOV1 [9], R0
-MOV1 [10], R1
-MOV1 [11], R2
-MOV1 [12], R3
-MOV1 [13], R4
-MOV1 [14], R5
-MOV1 [15], R6
-MOV1 [16], R7
-MOV1 [17], R8
-3. C0 계산 및 메모리 저장
-MOV0 R0, [0] 
-MOV0 R1, [1]
-MOV0 R2, [2]
-MOV0 R3, [9]
-MOV0 R4, [12]
-MOV0 R5, [15]
-MUL R0, R3
-MUL R1, R4
-MUL R2, R5
-ADD R0, R1
-ADD R0, R2
-MOV1 [18], R0
+MOV3 R0, 10  
+MOV3 R1, 11  
+MOV3 R2, 12  
+MOV3 R3, 13  
+MOV3 R4, 14  
+MOV3 R5, 15  
+MOV3 R6, 16  
+MOV3 R7, 17  
+MOV3 R8, 18  
+MOV1 [9], R0  
+MOV1 [10], R1  
+MOV1 [11], R2  
+MOV1 [12], R3  
+MOV1 [13], R4  
+MOV1 [14], R5  
+MOV1 [15], R6  
+MOV1 [16], R7  
+MOV1 [17], R8  
 
-4. C1 계산 및 메모리 저장
-MOV0 R0, [0]
-MOV0 R1, [1]
-MOV0 R2, [2]
-MOV0 R3, [10]
-MOV0 R4, [13]
-MOV0 R5, [16]
-MUL R0, R3
-MUL R1, R4
-MUL R2, R5
-ADD R0, R1
-ADD R0, R2
-MOV1 [19], R0
+3. C0 계산 및 메모리 저장  
+MOV0 R0, [0]   
+MOV0 R1, [1]  
+MOV0 R2, [2]  
+MOV0 R3, [9]  
+MOV0 R4, [12]  
+MOV0 R5, [15]  
+MUL R0, R3  
+MUL R1, R4  
+MUL R2, R5  
+ADD R0, R1  
+ADD R0, R2  
+MOV1 [18], R0  
 
-5. C2 계산 및 메모리 저장
-MOV0 R0, [0]
-MOV0 R1, [1]
-MOV0 R2, [2]
-MOV0 R3, [11]
-MOV0 R4, [14]
-MOV0 R5, [17]
-MUL R0, R3
-MUL R1, R4
-MUL R2, R5
-ADD R0, R1
-ADD R0, R2
-MOV1 [20], R0
-6. C3 계산 및 메모리 저장
-MOV0 R0, [3]
-MOV0 R1, [4]
-MOV0 R2, [5]
-MOV0 R3, [9]
-MOV0 R4, [12]
-MOV0 R5, [15]
-MUL R0, R3
-MUL R1, R4
-MUL R2, R5
-ADD R0, R1
-ADD R0, R2
-MOV1 [21], R0
+4. C1 계산 및 메모리 저장  
+MOV0 R0, [0]  
+MOV0 R1, [1]  
+MOV0 R2, [2]  
+MOV0 R3, [10]  
+MOV0 R4, [13]  
+MOV0 R5, [16]  
+MUL R0, R3  
+MUL R1, R4  
+MUL R2, R5  
+ADD R0, R1  
+ADD R0, R2  
+MOV1 [19], R0  
 
-7. C4 계산 및 메모리 저장
-MOV0 R0, [3]
-MOV0 R1, [4]
-MOV0 R2, [5]
-MOV0 R3, [10]
-MOV0 R4, [13]
-MOV0 R5, [16]
-MUL R0, R3
-MUL R1, R4
-MUL R2, R5
-ADD R0, R1
-ADD R0, R2
-MOV1 [22], R0
+5. C2 계산 및 메모리 저장  
+MOV0 R0, [0]  
+MOV0 R1, [1]  
+MOV0 R2, [2]  
+MOV0 R3, [11]  
+MOV0 R4, [14]  
+MOV0 R5, [17]  
+MUL R0, R3  
+MUL R1, R4  
+MUL R2, R5  
+ADD R0, R1  
+ADD R0, R2  
+MOV1 [20], R0  
 
-8. C5 계산 및 메모리 저장
-MOV0 R0, [3]
-MOV0 R1, [4]
-MOV0 R2, [5]
-MOV0 R3, [11]
-MOV0 R4, [14]
-MOV0 R5, [17]
-MUL R0, R3
-MUL R1, R4
-MUL R2, R5
-ADD R0, R1
-ADD R0, R2
-MOV1 [23], R0
-9. C6 계산 및 메모리 저장
-MOV0 R0, [6]
-MOV0 R1, [7]
-MOV0 R2, [8]
-MOV0 R3, [9]
-MOV0 R4, [12]
-MOV0 R5, [15]
-MUL R0, R3
-MUL R1, R4
-MUL R2, R5
-ADD R0, R1
-ADD R0, R2
-MOV1 [24], R0
+6. C3 계산 및 메모리 저장  
+MOV0 R0, [3]  
+MOV0 R1, [4]  
+MOV0 R2, [5]  
+MOV0 R3, [9]  
+MOV0 R4, [12]  
+MOV0 R5, [15]  
+MUL R0, R3  
+MUL R1, R4  
+MUL R2, R5  
+ADD R0, R1  
+ADD R0, R2  
+MOV1 [21], R0  
 
-10. C7 계산 및 메모리 저장
-MOV0 R0, [6]
-MOV0 R1, [7]
-MOV0 R2, [8]
-MOV0 R3, [10]
-MOV0 R4, [13]
-MOV0 R5, [16]
-MUL R0, R3
-MUL R1, R4
-MUL R2, R5
-ADD R0, R1
-ADD R0, R2
-MOV1 [25], R0
+7. C4 계산 및 메모리 저장  
+MOV0 R0, [3]  
+MOV0 R1, [4]  
+MOV0 R2, [5]  
+MOV0 R3, [10]  
+MOV0 R4, [13]  
+MOV0 R5, [16]  
+MUL R0, R3  
+MUL R1, R4  
+MUL R2, R5  
+ADD R0, R1  
+ADD R0, R2  
+MOV1 [22], R0  
 
-11. C8 계산 및 메모리 저장
-MOV0 R0, [6]
-MOV0 R1, [7]
-MOV0 R2, [8]
-MOV0 R3, [11]
-MOV0 R4, [14]
-MOV0 R5, [17]
-MUL R0, R3
-MUL R1, R4
-MUL R2, R5
-ADD R0, R1
-ADD R0, R2
-MOV1 [26], R0
+8. C5 계산 및 메모리 저장  
+MOV0 R0, [3]  
+MOV0 R1, [4]  
+MOV0 R2, [5]  
+MOV0 R3, [11]  
+MOV0 R4, [14]  
+MOV0 R5, [17]  
+MUL R0, R3  
+MUL R1, R4  
+MUL R2, R5  
+ADD R0, R1  
+ADD R0, R2  
+MOV1 [23], R0  
+
+9. C6 계산 및 메모리 저장  
+MOV0 R0, [6]  
+MOV0 R1, [7]  
+MOV0 R2, [8]  
+MOV0 R3, [9]  
+MOV0 R4, [12]  
+MOV0 R5, [15]  
+MUL R0, R3  
+MUL R1, R4  
+MUL R2, R5  
+ADD R0, R1  
+ADD R0, R2    
+MOV1 [24], R0  
+
+10. C7 계산 및 메모리 저장  
+MOV0 R0, [6]  
+MOV0 R1, [7]  
+MOV0 R2, [8]  
+MOV0 R3, [10]  
+MOV0 R4, [13]  
+MOV0 R5, [16]  
+MUL R0, R3  
+MUL R1, R4  
+MUL R2, R5  
+ADD R0, R1  
+ADD R0, R2  
+MOV1 [25], R0  
+
+11. C8 계산 및 메모리 저장  
+MOV0 R0, [6]  
+MOV0 R1, [7]  
+MOV0 R2, [8]  
+MOV0 R3, [11]  
+MOV0 R4, [14]  
+MOV0 R5, [17]  
+MUL R0, R3  
+MUL R1, R4  
+MUL R2, R5  
+ADD R0, R1  
+ADD R0, R2  
+MOV1 [26], R0  
 
 ### 바이너리 코드 변환
 0011000000000001
@@ -335,45 +338,45 @@ MOV1 [26], R0
 
 ![image](https://user-images.githubusercontent.com/58457978/70216958-d92d4a00-1783-11ea-8fa7-cfd78d163ac5.png)
 
-- 요구사항
-MOV4를 사용하지 않은 어셈블리 코드를 작성하고 성능 측정
-MOV4를 사용할 때 성능 측정 비표
+- 요구사항  
+MOV4를 사용하지 않은 어셈블리 코드를 작성하고 성능 측정  
+MOV4를 사용할 때 성능 측정 비표  
 
 ### 알고리즘 구현
 
-① MOV4를 사용하지 않은 어셈블리 코드를 작성하고 성능 측정
-MOV3 R0, #1
-MOV3 R1, #1
-MOV3 R2, #2
-MOV3 R5, #10
-SUB R5, R2
-MOV3 R3, #1
-JZ R5, 9
-MOV3 R6, #0
-ADD R1, R0
-ADD R6, R1
-MOV1 [0], R0
-MOV0 R1, [0]
-MOV1 [0], R6
-MOV0 R0, [0]
-SUB R5, R3
-JZ R4, -10
+① MOV4를 사용하지 않은 어셈블리 코드를 작성하고 성능 측정  
+MOV3 R0, #1  
+MOV3 R1, #1  
+MOV3 R2, #2  
+MOV3 R5, #10  
+SUB R5, R2  
+MOV3 R3, #1  
+JZ R5, 9  
+MOV3 R6, #0  
+ADD R1, R0  
+ADD R6, R1  
+MOV1 [0], R0  
+MOV0 R1, [0]  
+MOV1 [0], R6  
+MOV0 R0, [0]  
+SUB R5, R3  
+JZ R4, -10  
 
-② MOV4를 사용할 때 성능 측정 비표
-MOV3 R0, #1
-MOV3 R1, #1
-MOV3 R2, #2
-MOV3 R5, #10
-SUB R5, R2
-MOV3 R3, #1
-JZ R5, 7
-MOV3 R6, #0
-ADD R1, R0
-ADD R6, R1
-MOV4 R1, R0
-MOV4 R0, R6
-SUB R5, R3
-JZ R4, -8
+② MOV4를 사용할 때 성능 측정 비표  
+MOV3 R0, #1  
+MOV3 R1, #1  
+MOV3 R2, #2  
+MOV3 R5, #10  
+SUB R5, R2  
+MOV3 R3, #1  
+JZ R5, 7  
+MOV3 R6, #0  
+ADD R1, R0  
+ADD R6, R1  
+MOV4 R1, R0  
+MOV4 R0, R6  
+SUB R5, R3  
+JZ R4, -8  
 
 ### 바이너리 코드 변환
 
@@ -413,7 +416,8 @@ JZ R4, -8
 
 ### 결과
 ![image](https://user-images.githubusercontent.com/58457978/70218014-93718100-1785-11ea-9271-39d939cd9e6d.png)
-① MOV4를 사용하지 않은 어셈블리 코드를 작성하고 성능 측정
+① MOV4를 사용하지 않은 어셈블리 코드를 작성하고 성능 측정  
+
 ![image](https://user-images.githubusercontent.com/58457978/70218022-95d3db00-1785-11ea-9720-b782cc932ef1.png)
 ② MOV4를 사용할 때 성능 측정 비표
 
@@ -421,64 +425,64 @@ JZ R4, -8
 
 ![image](https://user-images.githubusercontent.com/58457978/70217245-1bef2200-1784-11ea-97b2-3086cb6bf850.png)
 
-‒ 요구사항
-최종 결과 C행렬은 메모리에 저장되어야 함
-A행렬과 B행렬 값도 아래의 값을 그대로 유지하여 메모리에 존재해야 한다.
-JZ 명령어를 반드시 사용하여 loop 형태로 프로그램을 작성해야 한다.
-다음 페이지의 TPU 모델 수정을 반드시 해야 한다.
-행렬 곱 연산의 성능을 측정한다.
-성능을 높이기 위한 방법을 제시하고 그로 인한 성능 향상을 보인다.
+‒ 요구사항  
+최종 결과 C행렬은 메모리에 저장되어야 함  
+A행렬과 B행렬 값도 아래의 값을 그대로 유지하여 메모리에 존재해야 한다.  
+JZ 명령어를 반드시 사용하여 loop 형태로 프로그램을 작성해야 한다.  
+다음 페이지의 TPU 모델 수정을 반드시 해야 한다.  
+행렬 곱 연산의 성능을 측정한다.  
+성능을 높이기 위한 방법을 제시하고 그로 인한 성능 향상을 보인다.  
 
 ### 알고리즘 구현(C++ 이용)
 ![image](https://user-images.githubusercontent.com/58457978/70218248-fd8a2600-1785-11ea-9b29-d949baea4c18.png)
 
-### 어셈블리어 구현
-MOV3 R0, #50 ; line 1
-MOV3 R1, #1
-MOV3 R2, #1
-JZ R0, 4
-MOV2 R1, R1
-ADD R1, R2
-SUB R0, R2
-JZ R3, -5 ; line 8
-MOV3 R0, #0 ; line 9
-MOV3 R7, #1
-MOV3 R8, #5
-MOV3 R10, #26
-MOV3 R11, #51
-MOV3 R12, #0
-MOV3 R13, #5
-MOV3 R15, #5
-MOV3 R10, #0
-MOV3 R5, #1
-MOV3 R6, #26
-MOV4 R3, R5
-MOV3 R14, #5 ; line 21
-JZ R13, 24 ; line 22
-MOV4 R4, R6
-JZ R14, 18 ; line 24
-MOV4 R9, R3
-MOV4 R10, R4
-JZ R15, 8 ; line 27
-MOV4 R1, R9
-MOV4 R2, R1O
-MUL R1, R2
-ADD R0, R1
-ADD R9, R7
-ADD R10, R8
-SUB R15, R7
-JZ R12, -9 ; line 35
-MOV2 R11, R0
-MOV3 R0, #0
-ADD R11, R7
-MOV3 R15, #5
-ADD R4, R7
-SUB R14, R7
-JZ R12, -19 ; line 42
-MOV3 R14, #5
-ADD R3, R8
-SUB R13, R7
-JZ R12, -25 ; line 46
+### 어셈블리어 구현  
+MOV3 R0, #50 ; line 1  
+MOV3 R1, #1  
+MOV3 R2, #1  
+JZ R0, 4  
+MOV2 R1, R1  
+ADD R1, R2  
+SUB R0, R2  
+JZ R3, -5 ; line 8  
+MOV3 R0, #0 ; line 9  
+MOV3 R7, #1  
+MOV3 R8, #5  
+MOV3 R10, #26  
+MOV3 R11, #51  
+MOV3 R12, #0  
+MOV3 R13, #5  
+MOV3 R15, #5  
+MOV3 R10, #0  
+MOV3 R5, #1  
+MOV3 R6, #26  
+MOV4 R3, R5  
+MOV3 R14, #5 ; line 21  
+JZ R13, 24 ; line 22  
+MOV4 R4, R6  
+JZ R14, 18 ; line 24  
+MOV4 R9, R3  
+MOV4 R10, R4  
+JZ R15, 8 ; line 27  
+MOV4 R1, R9  
+MOV4 R2, R1O  
+MUL R1, R2  
+ADD R0, R1  
+ADD R9, R7  
+ADD R10, R8  
+SUB R15, R7  
+JZ R12, -9 ; line 35  
+MOV2 R11, R0  
+MOV3 R0, #0  
+ADD R11, R7  
+MOV3 R15, #5  
+ADD R4, R7  
+SUB R14, R7  
+JZ R12, -19 ; line 42  
+MOV3 R14, #5  
+ADD R3, R8  
+SUB R13, R7  
+JZ R12, -25 ; line 46  
 
 ### 바이너리 코드 변환
 0011000000110010
